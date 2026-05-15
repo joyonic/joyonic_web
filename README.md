@@ -1,16 +1,90 @@
-# React + Vite
+# Joyonic Web 项目说明
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+本项目是基于 React + Vite 的多语言展示网站。
 
-Currently, two official plugins are available:
+## 1. 环境要求
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 20+（推荐使用 LTS 版本）
+- npm 10+
+- Git
 
-## React Compiler
+可先检查版本：
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```bash
+node -v
+npm -v
+git --version
+```
 
-## Expanding the ESLint configuration
+## 2. 本地部署（开发环境）
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2.1 克隆仓库
+
+```bash
+git clone https://github.com/joyonic/joyonic_web.git
+cd joyonic_web
+```
+
+### 2.2 安装依赖
+
+```bash
+npm install
+```
+
+### 2.3 启动开发服务器
+
+```bash
+npm run dev
+```
+
+启动后在浏览器访问终端输出中的地址（默认一般为 `http://localhost:5173`）。
+
+## 3. 生产构建与本地预览
+
+### 3.1 打包
+
+```bash
+npm run build
+```
+
+构建产物会输出到 `dist/` 目录。
+
+### 3.2 本地预览构建结果
+
+```bash
+npm run preview
+```
+
+## 4. 分支协作规范
+
+- `main`：线上发布分支（仅用于发布）
+- `develop`：日常开发分支
+
+建议流程：
+
+1. 从 `develop` 拉取最新代码。
+2. 在 `develop` 或功能分支开发并提交。
+3. 通过 PR 合并到 `main` 后发布。
+
+常用命令：
+
+```bash
+git checkout develop
+git pull origin develop
+```
+
+## 5. 常见问题
+
+- 端口被占用：
+	重新启动后 Vite 会自动切换端口，按终端提示访问即可。
+- 依赖安装失败：
+	可先删除 `node_modules` 和 `package-lock.json` 后重新执行 `npm install`。
+
+## 6. 项目主要命令
+
+```bash
+npm run dev      # 启动开发环境
+npm run build    # 生产构建
+npm run preview  # 预览构建结果
+npm run lint     # 代码检查
+```
